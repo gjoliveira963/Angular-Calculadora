@@ -1,17 +1,65 @@
 <div class="container">
 	<div class="formBox">
-		<form>
-			<h2>Calculadora</h2>
-			<label for="numberOne">Número 1:</label>
-			<input
-				type="number"
-				id="numberOne"
-				name="numberOne" />
-			<label for="numberTwo">Número 2:</label>
-			<input
-				type="number"
-				id="numberTwo"
-				name="numberTwo" />
+		<form
+			#form="ngForm"
+			(ngSubmit)="calculate()">
+			<h2>Calculadora Angular</h2>
+
+			<div class="input-group">
+				<label for="numberOne">Primeiro número:</label>
+				<input
+					type="number"
+					id="numberOne"
+					name="numberOne"
+					[(ngModel)]="numberOne"
+					required />
+			</div>
+
+			<div class="operation-select">
+				<label>Operação:</label>
+				<select
+					title="Selecione uma operação"
+					[(ngModel)]="operation"
+					name="operation">
+					<option value="add">Adicionar (+)</option>
+					<option value="subtract">Subtrair (-)</option>
+					<option value="multiply">Multiplicar (×)</option>
+					<option value="divide">Dividir (÷)</option>
+				</select>
+			</div>
+
+			<div class="input-group">
+				<label for="numberTwo">Segundo número:</label>
+				<input
+					type="number"
+					id="numberTwo"
+					name="numberTwo"
+					[(ngModel)]="numberTwo"
+					required />
+			</div>
+
+			<div class="button-group">
+				<button
+					type="submit"
+					class="calculate"
+					>Calcular</button
+				>
+				<button
+					type="button"
+					class="clear"
+					(click)="clear()"
+					>Limpar</button
+				>
+			</div>
 		</form>
+
+		@if (errorMessage) {
+		<div class="error">{{ errorMessage }}</div>
+		} @if (result !== 0) {
+		<div class="result">
+			<span>Resultado:</span>
+			<strong>{{ result }}</strong>
+		</div>
+		}
 	</div>
 </div>

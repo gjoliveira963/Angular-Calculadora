@@ -164,4 +164,7 @@ logs
 .env.*
 !.env.example
 
+# Angular
+.angular
+
 # End of https://www.toptal.com/developers/gitignore/api/node
