@@ -57,7 +57,3 @@ npm start
 ```
 
 A aplicação estará disponível em `http://localhost:4200`.
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT.
